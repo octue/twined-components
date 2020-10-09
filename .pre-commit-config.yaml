@@ -1,0 +1,48 @@
+exclude: 'build|docs|node_modules|.git|.tox|staticfiles|static_files|media_files|((?:[^/]*/)*)(.svg)|((?:[^/]*/)*)(.xml)'
+default_stages: [commit]
+fail_fast: true
+default_language_version:
+  python: python3
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.1.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+        args: ['--maxkb=10240']
+
+  - repo: https://github.com/windpioneers/pre-commit-hooks
+    rev: 0.0.5
+    hooks:
+      - id: check-branch-name
+        args:
+          - '^main$'
+          - '^master$'
+          - '^development$'
+          - '^staging$'
+          - '^devops/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^doc/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^feature/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^fix/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^hotfix/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^learning/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+          - '^review/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: master
+    hooks:
+      - id: eslint
+        files: \.[jt]sx?$  # *.js, *.jsx, *.ts and *.tsx
+        types: [file]
+        args: ['--fix']
+        additional_dependencies:
+          - eslint@latest
+          - eslint-config-airbnb@latest
+          - eslint-plugin-flowtype@latest
+          - eslint-plugin-import@latest
+          - eslint-plugin-jsx-a11y@latest
+          - eslint-plugin-react@latest
+          - eslint-plugin-react-hooks@latest
