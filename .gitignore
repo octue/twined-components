@@ -105,3 +105,7 @@ dist
 
 # Jetbrains ides
 .idea/
+
+# Yarn lock - Normally committed, but do we want to do that for a library???
+yarn.lock
+

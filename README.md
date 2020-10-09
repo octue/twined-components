@@ -1,54 +1,44 @@
-[![codecov](https://codecov.io/gh/thclark/react-library-template/branch/master/graph/badge.svg)](https://codecov.io/gh/thclark/react-library-template)
-![test-ci](https://github.com/thclark/react-library-template/workflows/test-ci/badge.svg)
+[![codecov](https://codecov.io/gh/octue/twined-components/branch/master/graph/badge.svg)](https://codecov.io/gh/octue/twined-components)
+![test-ci](https://github.com/octue/twined-components/workflows/test-ci/badge.svg)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![airbnb](https://img.shields.io/badge/code%20style-airbnb-000000.svg)]()
 [![black-girls-code](https://img.shields.io/badge/black%20girls-code-f64279.svg)](https://www.blackgirlscode.com/)
 
 
-# Template Material-UI Component Library
+# Twined Components
 
-This is a template for a react library:
+Components and hooks to help you build frontends for data services based on [twined](https://twined.readthedocs.io).
+
+ - storybook and documentation
  - started with `create-react-app` and 
  - based on Material-UI v4.x.x
- - storybook and documentation
- - workaround example (see the `TwoWaySwitch` component) for [this issue](https://github.com/storybookjs/storybook/issues/4143), enabling documented components to be wrapped in hocs
- - additional navigational components for use with react-router-dom
- - airbnb style guide with some mods (no fear though - instructions for switching to your preferred one below)
+ - workaround for [this issue with storybook](https://github.com/storybookjs/storybook/issues/4143), enabling documented components to be wrapped in hocs
 
-## How to use this template:
-
-- Create a new repository on GitHub based on this template 
-- Log into your (or create a) [codecov](https://codecov.io) account, and:
-  - Create a project based on your new repository.
-  - Copy the badge markdown and paste it at the top of this README file
-  - *[Only for private repos]* Copy the token and use it to create a secret called `CODECOV_TOKEN` in your GitHub repository settings. This will allow the github action to upload codecov results
-- Update the `[test-ci]` badge at the top of this README to point to your repo
-- Clone the repository, then follow the instructions below to install and run the storybook
+#### TO DO
 - Go into `.storybook/customStorybookTheme` and update your organisation logo and other details
 - Go to `src/themes/_base.js` and update to your brand colours (you can use the [MUI tool](https://material.io/resources/color/) to select main colours and calculate shades from that
 - Commit all your changes. Check the CI is working in GitHub Actions.
 
-### Optional - changing the style guide
-
-- Go into `package.json` and update the `eslint` plugins and config to match your organisation's style guide (this shamelessly uses a variation of AirBnB which is the closest I can get javascript to being both readable and usable, I'm sure you have a different opinion).
-  - If you make any changes, run `eslint --fix` to update throughout  
-- Re-run the storybook to ensure your changes don't break everything
-
 ## Installation
 
-Install in the project directory:
-`yarn`
+Add to your project:
+`yarn add twined-components`
+
+(or `npm install --save twined components` if that's your bag).
 
 
-## Run the storybook
+## Contributing
 
-In the project directory, you can run:
-`yarn run storybook`
+Fork and clone the github repository. Install development requirements with `yarn install` then do
+`yarn run storybook` to get started.
 
-The storybook is an interactive playground for each component. It contains documentation generated from the source files and a canvas for interacting with the components.
+The storybook is an interactive playground for each component. It contains documentation generated from the source files
+and a canvas for interacting with the components. It's where you should start when developing or adding new components.
 
+### Hot-reloading server
 
-## Run Tests
+For developing as you go.
+`yarn run start`
 
 ### Interactive watch mode
 
