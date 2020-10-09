@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        fetch_depth: 0  # Chromatic needs the whole history to fetch the base build
+        with:
+          fetch-depth: 0  # Chromatic needs the whole history to fetch the base build
       - name: Install modules
         run: yarn
       - name: Run tests with coverage
