@@ -9,10 +9,10 @@
 
 Components and hooks to help you build frontends for data services based on [twined](https://twined.readthedocs.io).
 
- - storybook and documentation
+ - Storybook and documentation
  - started with `create-react-app` and 
  - based on Material-UI v4.x.x
- - workaround for [this issue with storybook](https://github.com/storybookjs/storybook/issues/4143), enabling documented components to be wrapped in hocs
+ - workaround for [this issue with storybook](https://github.com/storybookjs/storybook/issues/4143), enabling documented components to be wrapped in hocs.
 
 #### TO DO
 - Go into `.storybook/customStorybookTheme` and update your organisation logo and other details
