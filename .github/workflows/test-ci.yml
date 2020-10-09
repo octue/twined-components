@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        fetch-depth: 0  # Chromatic needs the whole history to fetch the base build
       - name: Install modules
         run: yarn
       - name: Run tests with coverage
@@ -20,3 +21,10 @@ jobs:
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: storybook
+          allowConsoleErrors: False
