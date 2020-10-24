@@ -1,31 +1,44 @@
 
 /* Brand colours
  *
+ * From our main colours, light and dark variants are generated at https://material.io/resources/color/ ...
+ * These will be mixed into the MUI theme object so you get them in context
+ *
  */
-
-// From main colours, light and dark variants came from https://material.io/resources/color/ ...
-// These will be mixed into the MUI theme object so you get them in context
 const branding = {
   palette: {
-    yourCompanyTeal: {
-      light: '#005b4f',
-      main: '#00897b',
-      dark: '#4ebaaa',
+    octueGrey: {
+      light: '#79797b',
+      main: '#4d4d4f',
+      dark: '#252527',
       contrastText: '#ffffff',
     },
-    yourCompanyPink: {
-      light: '#ff5c8d',
-      main: '#d81b60',
-      dark: '#a00037',
+    octueYellow: {
+      light: '#f6c043',
+      main: '#bf9000',
+      dark: '#8a6300',
       contrastText: '#ffffff',
     },
-    otherUsefulBlue: {
-      light: '#5472d3',
-      main: '#0d47a1',
-      dark: '#002171',
+    octueRed: {
+      light: '#ec5958',
+      main: '#b4232f',
+      dark: '#7d0008',
       contrastText: '#ffffff',
     },
-    // These are just generally useful to have around in the palette context when styling stuff up
+    octueBlue: {
+      light: '#73c9ff',
+      main: '#3498db',
+      dark: '#006aa9',
+      contrastText: '#ffffff',
+    },
+    octueGreen: {
+      light: '#5acab8',
+      main: '#1a9988',
+      dark: '#006a5b',
+      contrastText: '#ffffff',
+    },
+    gradientRedBlue: 'linear-gradient(90deg, #b4232f, #3498db)',
+    gradientBlueRed: 'linear-gradient(90deg, #3498db, #b4232f)',
     brands: {
       twitter: '#55acee',
       facebook: '#3b5998',
@@ -41,37 +54,34 @@ const branding = {
 
 /* MATERIAL-UI THEME
  *
- * I've made this up just now as a basis to show you how we build the theme.
+ * I've made this up as a basis to show you how to build the theme. You can use the twined default themes out of the
+ * box, or provide your own customised to your company branding.
  *
  * MUI doesn't allow arbitrary additions to its theme object. That's a disadvantage when you have one parameter that
- * it'd just be convenient to have as part of your theme context and access on the theme object...
- *
- * For example, a success colour (glaringly missing from MUI4). With the trick below you can add theme parameters that
- * we can then pick up from context as we build components.
+ * it'd just be convenient to access as part of your theme. See `src/themes/light-theme` for how to mix the above
+ * branding object into the theme so that you can access those properties from any component.
  *
  */
 const baseThemeOptions = {
   palette: {
     primary: {
-      ...branding.palette.yourCompanyTeal  // Or use a different primary and secondary, or whatever. Your brand colours will also be mixed in explicitly.
+      ...branding.palette.octueBlue, // Or use a different primary and secondary; the brand colours will also be mixed in explicitly.
     },
     secondary: {
-      ...branding.palette.yourCompanyPink  // Or use other primary and secondary
+      ...branding.palette.octueRed, // Or use a different primary and secondary; the brand colours will also be mixed in explicitly.
     },
   },
-  props: { // Suggestion: Text boxes should be the outlined variant, because the (default) greyed out variant looks horrible, and is a UX nightmare because it looks disabled.
-    MuiTextField: {
+  // Global overrides of MUI default props...
+  props: {
+    MuiTextField: { // Text boxes should be the outlined variant, because the default greyed out variant looks disabled (poor UX - even google don't use their own default).
       variant: 'outlined',
     },
   },
-  // This is how to override all of MUI in one place...
+  // Global overrides of MUI default styling...
   overrides: {
     MuiPaper: {
       rounded: {
         borderRadius: '0px', // Choose whatever you want... it's helpful to have it done globally here.
-      },
-      root: {
-        border: 'none',
       },
     },
   },
