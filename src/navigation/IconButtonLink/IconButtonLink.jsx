@@ -8,16 +8,28 @@ import IconButton from '@material-ui/core/IconButton'
 const RefLink = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />)
 
 
-// The best of both worlds. Renders MUI's IconButton but provides a link, either internal or external
-// Creates a download link if both 'download' and `href` props are given
-// Creates an external link with `target="_blank" rel="noopener noreferrer"` if just an `href` prop is given
-// Otherwise uses react-router to create an internal link (if 'to' prop is given)
+// TODO This is mostly duplicated from the ButtonLink code. Refactor together. Honestly no idea why MUI even have a separate component.
+
+/**
+ * MUI IconButton as a link, either to an external href or internal location using react-router-dom.
+ *
+ * Avoids the need to explicitly style links as buttons or hacking types of a button.
+ * This automatically creates an external link (if an `href` prop is given), otherwise uses react-router-dom to create
+ * an internal link (if 'to' prop is given).
+ *
+ * Creates a download link if both 'download' and `href` props are given. If only an href is given,
+ * the generated external link has `target="_blank" rel="noopener noreferrer"` set to securely open the link in another
+ * tab.
+ *
+ * Forwards ref to the target element.
+ *
+ */
 function IconButtonLink({ children, ...rest }) {
   const download = !!rest.download
   const external = !!rest.href
   if (download) {
     return (
-      <IconButton component="a" {...rest}>
+      <IconButton component="a" {...rest} download>
         {children}
       </IconButton>
     )
