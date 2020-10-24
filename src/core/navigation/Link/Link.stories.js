@@ -3,7 +3,7 @@ import Link from './Link'
 
 
 export default {
-  title: 'Navigation/Link',
+  title: 'Core/Navigation/Link',
   component: Link,
 }
 

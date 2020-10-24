@@ -3,7 +3,7 @@ import AppBar from './AppBar'
 
 
 export default {
-  title: 'Layout/AppBar',
+  title: 'Core/Layout/AppBar',
   component: AppBar,
 }
 

@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import SplitButton from './SplitButton'
 
 export default {
-  title: 'Core/SplitButton',
+  title: 'Core/Controls/SplitButton',
   component: SplitButton,
   actions: {},
 }

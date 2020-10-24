@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import { TwoWaySwitch } from './TwoWaySwitch'
 
 export default {
-  title: 'Core/TwoWaySwitch',
+  title: 'Core/Controls/TwoWaySwitch',
   component: TwoWaySwitch,
 }
 

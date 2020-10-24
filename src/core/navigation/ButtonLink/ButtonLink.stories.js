@@ -3,7 +3,7 @@ import ButtonLink from './ButtonLink'
 
 
 export default {
-  title: 'Navigation/ButtonLink',
+  title: 'Core/Navigation/ButtonLink',
   component: ButtonLink,
 }
 

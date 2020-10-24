@@ -4,7 +4,7 @@ import IconButtonLink from './IconButtonLink'
 
 
 export default {
-  title: 'Navigation/IconButtonLink',
+  title: 'Core/Navigation/IconButtonLink',
   component: IconButtonLink,
 }
 
