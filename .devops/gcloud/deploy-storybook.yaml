@@ -14,7 +14,7 @@ steps:
 
   - name: gcr.io/cloud-builders/gsutil
     args:
-      - cp
+      - rsync
       - '-r'
-      - storybook-static/*
-      - 'gs://storybook.twined.octue.com/*'
+      - storybook-static/
+      - 'gs://storybook.twined.octue.com/'
