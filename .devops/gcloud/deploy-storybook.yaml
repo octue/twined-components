@@ -3,7 +3,8 @@ steps:
     name: node
     entrypoint: yarn
     args:
-      - install --dev
+      - install
+      - '--dev'
 
   - id: Build storybook
     name: node
