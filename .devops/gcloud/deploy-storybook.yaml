@@ -1,0 +1,19 @@
+steps:
+  - id: Install
+    name: node
+    entrypoint: yarn
+    args:
+      - install --dev
+
+  - id: Build storybook
+    name: node
+    entrypoint: yarn
+    args:
+      - build-storybook
+
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      - cp
+      - '-r'
+      - storybook-static
+      - 'gs://storybook.twined.octue.com'
