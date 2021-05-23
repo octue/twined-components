@@ -16,5 +16,5 @@ steps:
     args:
       - cp
       - '-r'
-      - storybook-static
+      - storybook-static/
       - 'gs://storybook.twined.octue.com'
