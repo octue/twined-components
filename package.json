@@ -1,7 +1,63 @@
 {
   "name": "root",
   "private": true,
+  "dependencies": {},
   "devDependencies": {
-    "lerna": "^4.0.0"
-  }
+    "@babel/core": "^7.14.3",
+    "@harelpls/storybook-addon-materialui": "^2.0.0",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-docs": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "@storybook/theming": "^6.2.9",
+    "babel-loader": "8.1.0",
+    "lerna": "^4.0.0",
+    "microbundle": "^0.13.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "eslintConfig": {
+    "extends": "prettier",
+    "globals": {
+      "window": true,
+      "document": true,
+      "navigator": true,
+      "require": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "flowtype",
+      "flowtype-errors",
+      "import",
+      "jsx-a11y",
+      "react",
+      "react-hooks"
+    ],
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      }
+    },
+    "rules": {}
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "storybook": "start-storybook -p 6006 -s ./assets",
+    "build-storybook": "build-storybook -s ./assets"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
