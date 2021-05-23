@@ -30,18 +30,29 @@ repos:
           - '^learning/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
           - '^review/([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
 
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 'v2.2.1'
+    hooks:
+      - id: prettier
+
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: master
+    rev: v7.19.0
     hooks:
       - id: eslint
-        files: \.[jt]sx?$  # *.js, *.jsx, *.ts and *.tsx
+        files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
         types: [file]
         args: ['--fix']
         additional_dependencies:
-          - eslint@latest
-          - eslint-config-airbnb@latest
-          - eslint-plugin-flowtype@latest
-          - eslint-plugin-import@latest
-          - eslint-plugin-jsx-a11y@latest
-          - eslint-plugin-react@latest
-          - eslint-plugin-react-hooks@latest
+          - babel-eslint@^10.1.0
+          - eslint@^7.19.0
+          - eslint-config-prettier@^8.1.0
+          - eslint-loader@^4.0.2
+          - eslint-plugin-flowtype@^4.7.0
+          - eslint-plugin-flowtype-errors@^4.3.0
+          - eslint-plugin-import@^2.22.1
+          - eslint-plugin-jsx-a11y@^6.4.1
+          - eslint-plugin-react@^7.20.5
+          - eslint-plugin-react-hooks@^4.2.0
+          - flow-bin@^0.143.1
+          - prettier@^2.2.1
+          - react-scripts@^4.0.3

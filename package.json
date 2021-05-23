@@ -1,26 +1,32 @@
 {
-  "name": "twined-components",
-  "version": "0.0.1",
+  "name": "root",
   "private": true,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "source": "src/index.js",
-  "dependencies": {
-    "deepmerge": "^4.2.2",
-    "react-controllables": "^0.6.0"
-  },
-  "scripts": {
-    "test": "react-scripts test",
-    "coverage": "react-scripts test --coverage --watchAll=false --passWithNoTests",
-    "build": "react-scripts build",
-    "storybook": "start-storybook  -s ./public -p 6006",
-    "build-storybook": "build-storybook"
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@harelpls/storybook-addon-materialui": "^2.0.0",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-docs": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "@storybook/theming": "^6.2.9",
+    "babel-loader": "8.1.0",
+    "lerna": "^4.0.0",
+    "microbundle": "^0.13.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
   "eslintConfig": {
-    "extends": "airbnb",
+    "extends": "prettier",
     "globals": {
       "window": true,
-      "document": true
+      "document": true,
+      "navigator": true,
+      "require": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
@@ -32,6 +38,7 @@
     },
     "plugins": [
       "flowtype",
+      "flowtype-errors",
       "import",
       "jsx-a11y",
       "react",
@@ -43,88 +50,14 @@
         "version": "detect"
       }
     },
-    "rules": {
-      "arrow-body-style": 0,
-      "global-require": 0,
-      "import/no-unresolved": 0,
-      "import/extensions": 0,
-      "import/no-extraneous-dependencies": 0,
-      "jsx-a11y/anchor-is-valid": 0,
-      "max-len": 0,
-      "no-console": 0,
-      "padded-blocks": 0,
-      "quote-props": 0,
-      "no-multiple-empty-lines": 0,
-      "react/prop-types": 0,
-      "react/forbid-prop-types": 0,
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".jsx",
-            ".js"
-          ]
-        }
-      ],
-      "react/jsx-props-no-spreading": 0,
-      "react/prefer-stateless-function": 0,
-      "react/no-multi-comp": 0,
-      "react/destructuring-assignment": 0,
-      "semi": [
-        2,
-        "never"
-      ]
-    }
+    "rules": {}
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "storybook": "start-storybook -p 6006 -s ./assets",
+    "build-storybook": "build-storybook -s ./assets"
   },
-  "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@harelpls/storybook-addon-materialui": "^2.0.0",
-    "@material-ui/core": "^4.0.0",
-    "@material-ui/icons": "^4.0.0",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@storybook/addon-actions": "^6.0.21",
-    "@storybook/addon-essentials": "^6.0.21",
-    "@storybook/addon-knobs": "^6.0.21",
-    "@storybook/addon-links": "^6.0.21",
-    "@storybook/addons": "^6.0.21",
-    "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.21",
-    "@storybook/theming": "^6.0.21",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "babel-loader": "^8.1.0",
-    "chromatic": "^5.2.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jsx-a11y": "^6.3.0",
-    "eslint-plugin-react": "^7.20.0",
-    "npm-run-all": "^4.1.5",
-    "prop-types": "^15.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-is": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
-    "storybook-react-router": "^1.0.8"
-  },
-  "peerDependencies": {
-    "@material-ui/core": "^4.0.0",
-    "@material-ui/icons": "^4.0.0",
-    "prop-types": "^15.0.0",
-    "react": "^16.0.0 || ^17.0.0",
-    "react-dom": "^16.0.0 || ^17.0.0"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
