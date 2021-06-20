@@ -54,8 +54,10 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "storybook": "start-storybook -p 6006 -s ./assets",
-    "build-storybook": "build-storybook -s ./assets"
+    "build-fibres": "yarn --cwd ./packages/fibres build",
+    "build-storybook": "build-storybook -s ./assets",
+    "fibres": "yarn --cwd ./packages/fibres start",
+    "storybook": "start-storybook -p 6006 -s ./assets"
   },
   "workspaces": [
     "packages/*"
