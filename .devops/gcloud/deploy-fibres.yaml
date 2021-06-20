@@ -1,0 +1,20 @@
+steps:
+  - id: Install
+    name: node
+    entrypoint: yarn
+    args:
+      - install
+      - '--dev'
+
+  - id: Build fibres
+    name: node
+    entrypoint: yarn
+    args:
+      - build-fibres
+
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      - rsync
+      - '-r'
+      - packages/fibres/build/
+      - 'gs://fibres.octue.com/'
