@@ -1,0 +1,25 @@
+{
+  "name": "@twined/themes",
+  "version": "0.0.0",
+  "description": "The base theme for twined and Octue",
+  "author": "Tom Clark <tom@octue.com>",
+  "homepage": "https://github.com/octue/twined-ui#readme",
+  "main": "lib/themes.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octue/twined-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/octue/twined-ui/issues"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "deepmerge": "^4.2.2"
+  }
+}
