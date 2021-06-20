@@ -109,3 +109,6 @@ dist
 
 # Storybook static build
 storybook-static
+
+# Fibres static build
+packages/fibres/build/
